@@ -1,0 +1,35 @@
+# 🔴 Secrets
+.env
+*.env
+
+# 🔴 Database
+*.sql
+db.sqlite3
+
+# 🟠 Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# 🟡 Virtualenv
+.venv/
+venv/
+
+# 🔵 Django
+*.sqlite3
+media/
+staticfiles/
+
+# 🟣 Logs
+*.log
+logs/
+
+# 🟢 Dev tools
+uv.lock
+*.lock
+
+# ⚫ IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

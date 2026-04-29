@@ -1,0 +1,42 @@
+[project]
+name = "netdevops-backend-django"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "ansible>=13.4.0",
+    "celery>=5.6.2",
+    "croniter>=6.2.2",
+    "django>=6.0.3",
+    "django-cors-headers>=4.9.0",
+    "django-debug-toolbar>=6.2.0",
+    "django-environ>=0.13.0",
+    "django-extensions>=4.1",
+    "django-filter>=25.2",
+    "django-import-export>=4.4.0",
+    "django-jazzmin>=3.0.4",
+    "django-redis>=6.0.0",
+    "djangorestframework>=3.16.1",
+    "djangorestframework-simplejwt>=5.5.1",
+    "drf-spectacular>=0.29.0",
+    "drf-yasg>=1.21.15",
+    "grafana-api>=1.0.3",
+    "httpx>=0.28.1",
+    "ipython>=9.11.0",
+    "napalm>=5.1.0",
+    "netmiko>=4.6.0",
+    "pandas>=3.0.1",
+    "paramiko>=4.0.0",
+    "pillow>=12.1.1",
+    "prometheus-client>=0.24.1",
+    "psutil>=7.2.2",
+    "psycopg2-binary>=2.9.11",
+    "python-dateutil>=2.9.0.post0",
+    "python-decouple>=3.8",
+    "python-jenkins>=1.8.3",
+    "python-terraform>=0.10.1",
+    "redis>=7.3.0",
+    "requests>=2.32.5",
+    "whitenoise>=6.12.0",
+]
