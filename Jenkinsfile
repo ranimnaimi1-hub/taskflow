@@ -15,7 +15,7 @@ pipeline {
                 echo "🛑 Stopping monitoring stack..."
                 sh '''
                     cd /workspace/taskflow/taskflow_backend_django/monitor \
-                    && docker compose down || true
+                    && docker-compose down || true
                 '''
             }
         }
@@ -25,7 +25,7 @@ pipeline {
                 echo "📊 Deploying monitoring stack..."
                 sh '''
                     cd /workspace/taskflow/taskflow_backend_django/monitor \
-                    && docker compose up -d
+                    && docker-compose up -d
                 '''
             }
         }
