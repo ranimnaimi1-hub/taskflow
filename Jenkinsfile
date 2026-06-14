@@ -46,11 +46,13 @@ pipeline {
             }
         }
 
-        stage('Deploy Monitoring') {
+        stage('Deploy Monitoring Stack') {
             steps {
-                dir("${MONITOR_DIR}") {
-                    sh "docker-compose up -d"
-                }
+                echo "📊 Deploying monitoring stack..."
+                sh '''
+                    cd /workspace/taskflow/taskflow_backend_django/monitor \
+                    && docker compose up -d
+                '''
             }
         }
 
