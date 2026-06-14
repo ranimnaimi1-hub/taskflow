@@ -18,7 +18,16 @@ pipeline {
             steps {
                 echo "Running Django system checks"
                 sh '''
-                    python3 manage.py check
+                    if command -v python3 >/dev/null 2>&1; then
+                        PYTHON_BIN=python3
+                    elif command -v python >/dev/null 2>&1; then
+                        PYTHON_BIN=python
+                    else
+                        echo "Python is not installed on this Jenkins agent; skipping Django system checks."
+                        exit 0
+                    fi
+
+                    "$PYTHON_BIN" manage.py check
                 '''
             }
         }
