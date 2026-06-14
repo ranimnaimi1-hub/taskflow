@@ -46,27 +46,15 @@ pipeline {
             }
         }
 
-        stage('Deploy Monitoring Stack') {
+        stage('Deploy Monitoring') {
             steps {
-                echo "Deploying monitoring stack"
-                sh '''
-                    cd "${PROJECT_DIR}/monitor"
-                    if command -v docker-compose >/dev/null 2>&1; then
-                        docker-compose up -d
-                    else
-                        docker compose up -d
-                    fi
-                '''
+                dir("${MONITOR_DIR}") {
+                    sh "docker-compose up -d"
+                }
             }
         }
 
-        stage('Show Monitoring Endpoints') {
-            steps {
-                echo "Prometheus: http://<jenkins-host>:9095"
-                echo "Grafana: http://<jenkins-host>:3001"
-                echo "Django metrics: http://<django-host>:8000/metrics"
-            }
-        }
+        
     }
 
     post {
