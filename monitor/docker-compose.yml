@@ -1,17 +1,16 @@
-version: "3.9"
-
 services:
-
   prometheus:
     image: prom/prometheus
     container_name: prometheus
     ports:
       - "9095:9090"
     volumes:
-      - /home/user/taskflow/taskflow_backend_django/monitor/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
       - "--web.enable-lifecycle"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     restart: unless-stopped
     networks:
       - monitoring
@@ -21,6 +20,8 @@ services:
     container_name: grafana
     ports:
       - "3001:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
     restart: unless-stopped
     networks:
       - monitoring
@@ -36,4 +37,8 @@ services:
 
 networks:
   monitoring:
-    external: true
+    driver: bridge
+
+volumes:
+  grafana_data:
+
